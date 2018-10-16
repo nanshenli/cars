@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="page-header">
+                <h1>汽车租赁系统</h1>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">用户名</label>
+                            <input type="text" name="uname" class="uname form-control" placeholder="输入账号">
+                            <p class="tishi tishi1"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">密码</label>
+                            <input type="password" name="psword" class="psword form-control" placeholder="输入密码">
+                            <p class="tishi tishi2"></p>
+                        </div>
+                        <input type="button" class="tijiao btn btn-success" value="登录">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/js/jquery-1.12.3.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/underscore.js"></script>
+<script>
+    $(".tijiao").click(function(){
+        // var name=$(".uname").val();
+        var str=$("form").serialize();
+        $.post("/checklogin",str,function(data){
+            if(data.result==1){
+                alert("成功");
+                window.location="/client";
+            }else if(data.result==-1){
+                // alert("查无此人")
+                $(".tishi1").html("查无此人");
+            }else{
+                $(".tishi2").html("密码错误")
+                // alert("error");
+            }
+        })
+    })
+    $(".uname,.psword").focus(function(){
+        $(".tishi").html("");
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "car",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ejs": "^2.6.1",
+    "formidable": "^1.2.1",
+    "date-format": "^1.2.0",
+    "mongoose": "^5.2.9",
+    "express-session": "^1.15.6"
+  }
+}

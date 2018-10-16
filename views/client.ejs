@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <link rel="stylesheet" href="css/pqgrid.min.css" />
+    <style>
+        .nav-tabs li{
+            width:100%;
+        }
+        .nav-tabs li.active a{
+            color: #555;
+            cursor: default;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        #pagenavbox a{
+            display: inline-block;
+            padding:5px 10px;
+        }
+        #pagenavbox a.cur{
+            background: orange;
+        }
+    </style>
+<div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">租车系统</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/client">客人查询</a></li>
+                    <li><a href="/lease">租赁登记</a></li>
+                    <li><a href="/return">归还登记</a></li>
+                    <li><a href="/statistical">统计分析</a></li>
+                    <li><a href="/class">类别档案</a></li>
+                    <li><a href="/car">汽车档案</a></li>
+                    <li><a href="/">退出系统</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">管理员：<%=uname%></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div style="padding-bottom:5px;  margin-top: 60px" >
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">增加客户</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2" data-whatever="@fat" id="updata">修改客户信息</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3" data-whatever="@getbootstrap">删除</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4" data-whatever="@getbootstrap">返回</button>
+    </div>
+<!--增加新客户-->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">新增客户信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addtable">
+                        <div class="row">
+                            <p class="col-lg-3">
+                                <span>行号</span>
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="text" name="sid" class="form-control">
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col-lg-3">
+                                <span>客户名称：</span>
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="text" name="name"  class="form-control">
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col-lg-3">
+                                <span>性别：</span>
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="radio" name="sex" value="男">男
+                                <input type="radio" name="sex" value="女">女
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col-lg-3">
+                                <span>电话：</span>
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="text" name="phone" class="form-control jianchashoujihao">
+                            </p>
+
+                        </div>
+                        <p class="checkphone0" style="color:red;"></p>
+                        <div class="row">
+                            <p class="col-lg-3">
+                                <span>住址：</span>
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="text" name="address" class="form-control">
+                            </p>
+                        </div>
+                        <div class="row">
+                            <p class="col-lg-3">
+                                <span>身份证：</span>
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="text" name="idcard" class="form-control checktel">
+                            </p>
+                        </div>
+                        <p class="checkphone" style="color:red;"></p>
+                        <div class="row">
+                            <p class="col-lg-3">
+                                驾照号码：
+                            </p>
+                            <p class="col-lg-8">
+                                <input type="text" name="license" class="form-control">
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="Addbtn">确认</button>
+                    <button type="button" class="btn btn-primary">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--修改信息-->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">修改信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="width: 70%;" id="bjyg"></div>
+                    <!--<form >-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--<span>行号</span>-->
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="text" name="sid" class="form-control">-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--<span>客户名称：</span>-->
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="text" name="name"  class="form-control">-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--<span>性别：</span>-->
+
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="radio" name="sex" value="男">男-->
+                                <!--<input type="radio" name="sex" value="女">女-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--<span>电话：</span>-->
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="number" name="phone" class="form-control">-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--<span>住址：</span>-->
+
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="text" name="address" class="form-control">-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--<span>身份证：</span>-->
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="text" name="idcard" class="form-control">-->
+                            <!--</p>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<p class="col-lg-3">-->
+                                <!--驾照号码：-->
+
+                            <!--</p>-->
+                            <!--<p class="col-lg-8">-->
+                                <!--<input type="text" name="license" class="form-control">-->
+                            <!--</p>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="bcgg">确认</button>
+                    <button type="button" class="btn btn-primary">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--删除用户-->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModal3">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    是否删除
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+                    <button type="button" class="btn btn-primary" id="removebtn">YES</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--返回-->
+
+
+<!--客户信息表-->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">客户信息</div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>行号</th>
+                    <th>客户名称</th>
+                    <th>性别</th>
+                    <th>电话</th>
+                    <th>住址</th>
+                    <th>身份证</th>
+                    <th>驾照号码</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+        <div id="pagenavbox"></div>
+    </div>
+</div>
+
+<script src="/js/jquery-1.12.3.min.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/underscore.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/pqgrid.min.js"></script>
+    <script src="/js/PageNav.js"></script>
+<script>
+    function isPoneAvailable(str) {
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(str)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    $(".jianchashoujihao").blur(function(){
+        if(!isPoneAvailable($(this).val())){
+            $(".checkphone0").html("请输入正确的手机号")
+        }
+    })
+    $(".jianchashoujihao").focus(function(){
+            $(".checkphone0").html("")
+    })
+    $(".checktel").blur(function(){
+        if($(this).val().length<11){
+            $(".checkphone").html("请输入正确的身份证号")
+        }
+    })
+    $(".checktel").focus(function(){
+        if($(this).val().length<11){
+            $(".checkphone").html("")
+        }
+    })
+    $('#Addbtn').click(function () {
+        var str=$('#addtable').serialize();
+        console.log(str)
+        $.post("/add",str,function(data){
+            if(data.result == 1){
+                alert("提交成功！");
+                $("input[type=text]").val("");
+                // window.location="/staff";
+                window.location.reload();
+            }else if(data.result == -1){
+                alert("不好意思,id被占用！");
+            }else if(data.result == -2){
+                alert("服务器错误！");
+            }
+        })
+    })
+
+    //删除
+    $("#removebtn").click(function () {
+        var radi=$("input[name=radio]:checked").val();
+        if(radi==null){
+            alert("什么也没选中!");
+            return false;
+        }else{
+            var sid=$("input[name=radio]:checked").attr("data-id");
+            $.ajax({
+                url : "/remove/" + sid,
+                type : "delete",
+                success : function(data){
+                    if(data.result == 1){
+                        alert("删除成功");
+                        $(this).parents("tr").remove();
+                        window.location.reload();
+                    }else{
+                        alert("服务器错误！");
+                    }
+                }
+            });}
+    })
+
+    //更改页面
+    $("#updata").click(function () {
+        // alert(kk)
+        var radi=$("input[name=radio]:checked").val();
+        if(radi==null){
+            alert("什么也没选中!");
+            return false;
+        }else{
+            var sid=$("input[name=radio]:checked").attr("data-id");
+            $.ajax({
+                url : "/updata/" + sid,
+                type : "get",
+                success : function(data){
+                    if(data.result == -1){
+                        alert("服务器错误");
+                    }else{
+                        $('<form id="updateTable"></form>').html('<p><span>行号：</span><input class="form-control" type="text" name="sid" value="'+data.updata[0].sid+'" disabled></p><p><span>客户名称：</span><input class="form-control" type="text" name="name" class="name" value="'+data.updata[0].name+'"></p><p><span>性别：</span><input type="radio" name="sex" value="男" class="nan">男<input type="radio" name="sex" value="女" class="nv">女</p><p><span>电话：</span><input class="form-control" type="text" name="phone" class="phone" value="'+data.updata[0].phone+'"></p><p><span>住址：</span><input class="form-control" type="text" name="address" class="address" value="'+data.updata[0].address+'"></p><p><span>身份证：</span><input class="form-control" type="text" name="idcard"  class="idrard" value="'+data.updata[0].idcard+'"></p><p> 驾照号码：<input class="form-control" type="text" class="license" name="license"  value="'+data.updata[0].license+'"></p>').appendTo($("#bjyg"));
+                        var sexs=data.updata[0].sex;
+                        if (sexs=="男") {
+                            $('#bjyg .nan').prop("checked", true)
+                        }
+                        if (sexs=="女") {
+                            $('#bjyg .nv').prop("checked", true)
+                        }
+
+                    }
+                }
+            });}
+    })
+
+    //点击确认更改
+    $('#bcgg').click(function () {
+        var str=$('#updateTable').serialize();
+
+        var sid=$("input[name=radio]:checked").attr("data-id");
+
+        $.post("/toupdata/" + sid,str,function(data){
+            if(data.result == 1){
+                alert("修改成功！");
+                window.location.reload();
+                // window.location = "/";
+            }else{
+                alert("服务器错误！请联系管理员，怎么联系我也不知道！");
+            }
+        })
+    })
+    //close
+    $('#togb').click(function () {
+        $("#bjyg").html('');
+    })
+
+    $.get("/staff?page=1",function(data){
+        //分页条
+        new PageNav({
+            boxid : "pagenavbox",
+            page : 1,
+            pageAmount : data.pageAmount,
+            change : function(pagenumber){
+                gotopage(pagenumber);
+            }
+        });
+
+        gotopage(1);
+    });
+    function gotopage(pagenumber){
+        //清空
+        $("#tbody").empty();
+
+        //获得新的数据
+        $.get("/staff?page=" + pagenumber,function(data){
+            $.each(data.results,function(i, n){
+                $tr = $("<tr></tr>");
+                $("<td></td>").html('<input type="radio" name="radio" data-id="'+n._id+'"></td>').appendTo($tr);
+                $("<td></td>").html(n.sid).appendTo($tr);
+                $("<td></td>").html(n.name).appendTo($tr);
+                $("<td></td>").html(n.sex).appendTo($tr);
+                $("<td></td>").html(n.phone).appendTo($tr);
+                $("<td></td>").html(n.address).appendTo($tr);
+                $("<td></td>").html(n.idcard).appendTo($tr);
+                $("<td></td>").html(n.license).appendTo($tr);
+                $tr.appendTo($("#tbody"));
+            });
+        });
+    }
+</script>
+</body>
+</html>

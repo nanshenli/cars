@@ -1,0 +1,190 @@
+{
+  "_id" : ObjectId("5b83663d3965163aa81f7131"),
+  "sid" : NumberInt("20001"),
+  "name" : "别克英朗",
+  "category" : "别克",
+  "price" : NumberInt("176"),
+  "rentcount" : NumberInt("0"),
+  "state" : NumberInt("0")
+  "__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8366763965163aa81f7133"),
+"sid" : NumberInt("10001"),
+"name" : "大众朗逸",
+"category" : "大众",
+"price" : NumberInt("187"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("1"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b83669a3965163aa81f7134"),
+"sid" : NumberInt("40001"),
+"name" : "丰田雷凌",
+"category" : "丰田",
+"price" : NumberInt("193"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b83674a3965163aa81f7139"),
+"sid" : NumberInt("10003"),
+"name" : "大众途观",
+"category" : "大众",
+"price" : NumberInt("340"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8367b53965163aa81f713c"),
+"sid" : NumberInt("20004"),
+"name" : "别克GL8",
+"category" : "别克",
+"price" : NumberInt("496"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8367ed3965163aa81f713d"),
+"sid" : NumberInt("20005"),
+"name" : "2017别克GL8",
+"category" : "别克",
+"price" : NumberInt("593"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8368133965163aa81f713e"),
+"sid" : NumberInt("50001"),
+"name" : "奥迪A6",
+"category" : "奥迪",
+"price" : NumberInt("620"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8365fa3965163aa81f712f"),
+"sid" : NumberInt("30001"),
+"name" : "雪佛兰新科鲁兹",
+"category" : "雪佛兰",
+"price" : NumberInt("158"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8366173965163aa81f7130"),
+"sid" : NumberInt("30002"),
+"name" : "雪佛兰科鲁兹",
+"category" : "雪佛兰",
+"price" : NumberInt("164"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b836cabfff82c4f2449eaa1"),
+"sid" : NumberInt("12001"),
+"name" : "沃尔沃S90",
+"category" : "沃尔沃",
+"price" : NumberInt("592"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b83665b3965163aa81f7132"),
+"sid" : NumberInt("20002"),
+"name" : "别克昂科拉",
+"category" : "别克",
+"price" : NumberInt("178"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8366bd3965163aa81f7135"),
+"sid" : NumberInt("30003"),
+"name" : "雪佛兰迈锐宝",
+"category" : "雪佛兰",
+"price" : NumberInt("212"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b83670f3965163aa81f7137"),
+"sid" : NumberInt("10002"),
+"name" : "大众帕萨特",
+"category" : "大众",
+"price" : NumberInt("264"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8367303965163aa81f7138"),
+"sid" : NumberInt("30004"),
+"name" : "雪佛兰科帕奇两驱",
+"category" : "雪佛兰",
+"price" : NumberInt("284"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b83676d3965163aa81f713a"),
+"sid" : NumberInt("30005"),
+"name" : "雪佛兰科帕奇四驱",
+"category" : "雪佛兰",
+"price" : NumberInt("390"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b8367983965163aa81f713b"),
+"sid" : NumberInt("20003"),
+"name" : "别克昂科威",
+"category" : "别克",
+"price" : NumberInt("390"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b84c2323b01b84b1c1d3310"),
+"sid" : NumberInt("50003"),
+"name" : "安迪Q5L",
+"category" : "奥迪",
+"price" : NumberInt("666"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b84f1360bcf013adc73eb50"),
+"sid" : NumberInt("50004"),
+"name" : "奥迪Q3",
+"category" : "奥迪",
+"price" : NumberInt("356"),
+"rentcount" : NumberInt("0"),
+"state" : NumberInt("0"),
+"__v" : NumberInt("0")
+},
+{
+"_id" : ObjectId("5b840f780bd22a3bd02e8110"),
+"sid" : NumberInt("50002"),
+"name" : "奥迪00000",
+"category" : "奥迪",
+"price" : NumberInt("256"),
+"state" : NumberInt("1"),
+"rentcount" : NumberInt("1"),
+"__v" : NumberInt("0")
+}
